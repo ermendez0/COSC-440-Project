@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 public class Room extends Location {
- 
+
+ //Initializing Room Data
  private String name;
  private String desc;
  private ArrayList<Item> contents;
@@ -10,7 +11,7 @@ public class Room extends Location {
  contents = new ArrayList<>();
  setType("Room");
     }
- 
+ //Creation of Room Object
  public Room(String name, String desc) {
  this.name = name;
  this.desc = desc;
@@ -21,7 +22,7 @@ public class Room extends Location {
  public ArrayList<Items>  getContents() {
  return contents;
     }
- 
+ //Adding and Deleting Room Objects
  public void addObject(Item item){
  contents.add(item);
     }
@@ -56,6 +57,7 @@ public class Room extends Location {
  
     }
  
+ //View all items in the room
  public void viewRoomContent() {
  System.out.println("Room Contents");
  System.out.println();
