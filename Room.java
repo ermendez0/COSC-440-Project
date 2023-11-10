@@ -73,7 +73,7 @@ public class Room extends Location {
     @Override
  public String toString() {
  return "Room [name=" + name + ", desc=" + desc + ", contents=" + contents
-                + ", numberOfItemss=" + getNumberOfItemss() + "]";
+                + ", numberOfItems=" + getNumberOfItems() + "]";
     }
 
  public Item getRoomItem(int takeItem) {
