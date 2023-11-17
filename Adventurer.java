@@ -66,7 +66,7 @@ public class Adventurer {
 		return numofItems;
 	}
 	
-	public void setnumofThings(int numofItems) {
+	public void setnumofItems(int numofItems) {
 		this.numofItems = numofItems;
 	}
 	
