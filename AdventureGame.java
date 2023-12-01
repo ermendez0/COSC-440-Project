@@ -85,11 +85,29 @@ public class AdventureGame {
 	   walls[0].AddDirection("East", walls[3]);
 	   walls[0].AddDirection("North",rooms[0]);
 	   
+	   
+	   
 		    
 		    
 	//room map
 	  rooms[0].AddDirection("South", walls[0]);	 
 	  rooms[0].AddDirection("North", rooms[1]);
+	  
+	  rooms[1].AddDirection("North", rooms[2]);
+	  
+	  rooms[2].AddDirection("East", rooms[3]);
+	  
+	  rooms[3].AddDirection("East", rooms[4]);
+	  
+	  rooms[4].AddDirection("South", rooms[5]);
+	  
+	  rooms[5].AddDirection("East", rooms[6]);
+	  
+	  rooms[6].AddDirection("South", rooms[7]);
+	  
+	  rooms[7].AddDirection("West", rooms[8]);
+	  
+	  rooms[8].AddDirection("South", rooms[9]);
 	  
 	  
 		    
