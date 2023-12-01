@@ -34,11 +34,11 @@ public class AdventureGame {
 		items[1] = new Items("Scroll", "An ancient-looking scroll lays on a dusty table.");
 		items[2] = new Items("Cerberus Cookies", "Three-headed hound shaped cookies.");
 		items[3] = new Items("Minotaur Horn", "A sturdy and sharp horn from a defeated minotaur, could be used as a weapon or crafting material.");
-		items[4] = new Items("","");
-		items[5] = new Items("","");
-		items[6] = new Items("","");
-		items[7] = new Items("","");
-		items[8] = new Items("","");
+		items[4] = new Items("Divine Relic","A small relic representing one of the legendary beings.");
+		items[5] = new Items("Torn Page from a Grimoire","Fragments from a old spell book scattered around the room.");
+		items[6] = new Items("Nymph's Tears","A small vial containing tears.");
+		items[7] = new Items("Snake Scales","Shedded by Medusa.");
+		items[8] = new Items("Nectar of the Gods","A small flask filled with a golden, sweet liquid.");
 		items[9] = new Items("Zeus's Lightning Bolt", "The missing thunderbolt, the signature weapon and symbol of power for the Olympian god of thunder; Zeus.");
 		
 		
@@ -50,14 +50,34 @@ public class AdventureGame {
 		 
 		rooms[1] = new Room("Medusa's Mirror Maze", "A winding labyrinth of mirrors reflecting Medusa's terrifying stare. The adventurer must navigate carefully to avoid catching their own eyes in the deadly reflection. This room contains a pick up items.");
 		    rooms[1].addObject(items[0]);
+		    rooms[1].addObject(items[7]);
 		
-		rooms[2] = new Room("", "");
+		rooms[2] = new Room("Siren's Cove", "A small cove with faint sounds of siren echos of haunting songs.");
+		    rooms[2].addObject(items[6]);
 		
-		rooms[3] = new Room("", "");
+		rooms[3] = new Room("Athena's Library", "A vast library towering with bookshelves filled with forgotten spells and hidden knowledge.");
+		    rooms[3].addObject(items[5]);
 		
 		rooms[4] = new Room("Cerberus's Chamber", "A dimly lit room where the legendary three-headed guardian, Cerberus, rests in a vigilant slumber. This room contains a pick up item.");
 		    rooms[4].addObject(items[2]);
-		
+		    rooms[4].addObject(items[9]);
+		    
+	    rooms[5] = new Room("Ares' War Room", "An expansive room filled weapons lining the walls and trophies displayed as a reminder of defeated foes and past victories.");
+	        rooms[5].addObject(items[3]);
+	    
+	    rooms[6] = new Room("Hera's Grand Hall", "A majestic hall where the queen of the gods holds court.");
+	        rooms[6].addObject(items[4]);
+	    
+	    rooms[7] = new Room("Dionysus' Wine Cellar", "A cellar filled withsbarrels of wine and walls covered by grapefines.");
+	        rooms[7].addObject(items[8]);
+	        rooms[7].addObject(items[0]);
+	    
+	    rooms[8] = new Room("Titan's Throne Room", "A grand hall housing the thrones for the powerful titains during the reign.");
+	        rooms[8].addObject(items[0]);
+	    
+	    rooms[9] = new Room("Thunderstorm Observatory", "A room dedicated to the Olympian God, panoramic windows, allowing the view of thunderstroms raging in the sky.");
+	
+	    
 		
 	// wall map 
 		    
@@ -75,9 +95,7 @@ public class AdventureGame {
 		    
 		    
 	//starting room for player	    
-		 adventurer = new Adventurer(rooms[0],null,0);
-		 
-		 
+		 adventurer = new Adventurer(rooms[0],null,0); 
 		 
     }
 	
@@ -125,7 +143,7 @@ public class AdventureGame {
 		 else if(command.equalsIgnoreCase("Take")){
 		 if(currentLoc instanceof Room) {
 		                ((Room) currentLoc).viewRoomContent();
-		 System.out.println("Take the thing 0/1/2/3 .. from the room : ");
+		 System.out.println("Take the item 0/1/2/3 .. from the room : ");
 		 takeItem = Integer.parseInt(kBin.next());
 		 Items i = ((Room) currentLoc).getRoomItem(takeItem);
 		 adventurer.take(i);
@@ -135,7 +153,7 @@ public class AdventureGame {
 		            }
 		 else if(command.equalsIgnoreCase("Drop")){
 		 adventurer.viewInventory();
-		 System.out.println("Drop the thing 0/1/2/3 .. from the Inventory to room : ");
+		 System.out.println("Drop the item 0/1/2/3 .. from the Inventory to room : ");
 		 takeItem = Integer.parseInt(kBin.next());
 		 if(currentLoc instanceof Room) {
 		 Items i =adventurer.getInventoryItem(takeItem);
@@ -146,7 +164,7 @@ public class AdventureGame {
 		            }
 		 else if(command.equalsIgnoreCase("Use")){
 		 adventurer.viewInventory();
-		 System.out.println("Use the thing 0/1/2/3 .. from the Inventory : ");
+		 System.out.println("Use the item 0/1/2/3 .. from the Inventory : ");
 		 takeItem = Integer.parseInt(kBin.next());
 		 Items i =adventurer.getInventoryItem(takeItem);
 		 adventurer.drop(i);
